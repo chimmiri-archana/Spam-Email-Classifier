@@ -11,9 +11,6 @@ __pycache__/
 # VS Code
 .vscode/
 
-# Model files
-*.pkl
-
 # Operating System
 .DS_Store
 Thumbs.db
