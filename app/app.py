@@ -7,15 +7,15 @@ sys.path.append(os.path.abspath("src"))
 from predict import predict_message
 
 st.set_page_config(
-    page_title="Spam Email Classifier",
+    page_title="Spam Message Classifier",
     page_icon="📧",
     layout="centered"
 )
 
-st.title("📧 Spam Email Classifier")
+st.title("📧 Spam Message Classifier")
 
 st.write(
-    "Enter an SMS or email message below to check whether it is **Spam** or **Ham**."
+    "Enter an SMS or email message below to check whether it is **Spam** or **Safe**."
 )
 
 message = st.text_area(
@@ -30,9 +30,10 @@ if st.button("Predict"):
         st.warning("Please enter a message.")
     else:
 
-        prediction = predict_message(message)
+        result = predict_message(message)
 
-        if prediction == "Spam":
-            st.error("🚨SPAM MESSAGE")
+        if result == "Spam":
+            st.error("🚨 Spam Message.")
+            
         else:
-            st.success("✅ SAFE")
+            st.success("✅ Safe Message.")

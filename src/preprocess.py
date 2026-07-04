@@ -3,7 +3,12 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
-nltk.download("stopwords")
+from nltk.corpus import stopwords
+
+try:
+    stopwords.words("english")
+except LookupError:
+    nltk.download("stopwords")
 
 stemmer = PorterStemmer()
 stop_words = set(stopwords.words("english"))
